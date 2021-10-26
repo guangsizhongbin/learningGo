@@ -42,7 +42,9 @@ func Test_Interface(t *testing.T) {
     fmt.Println(w.getName())
 }
 
-// 空接口
+// 空interface(interface{}) 不包含任何的method
+// 正因为如此，所有的类型都实现了空interface
+// 空interface对于描述起不到任何的作用
 func Test_EmptyInterface(t *testing.T){
     m := make(map[string]interface{})
     m["name"] = "Tom"

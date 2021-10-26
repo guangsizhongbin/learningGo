@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// 必须使用make创建channel
 func TestChannel(t *testing.T) {
 	c := make(chan string)
 	go countSomething("sheep", c)
@@ -39,6 +40,7 @@ func countSomething(thing string, c chan string) {
 	close(c)
 }
 
+// Buffer channel
 func TestBufferChannel(t *testing.T) {
 	c := make(chan string, 2)
 	c <- "hello"
@@ -50,3 +52,5 @@ func TestBufferChannel(t *testing.T) {
 	msg = <-c
 	fmt.Println(msg)
 }
+
+
