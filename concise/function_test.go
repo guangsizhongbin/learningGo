@@ -18,3 +18,20 @@ func TestFunction(t *testing.T){
     fmt.Println(quo, rem)
     fmt.Println(addTwoNum(100, 17))
 }
+
+// 不定数量的参数
+// arg ...int告诉我们GO语言这个函数接受不定数量的参数.
+// 这些参数的类型全部是int, 在函数体中，变量arg是一个int的slice.
+func TestVariadicFunction(t *testing.T){
+    addMultiNum(1, 2, 3)
+}
+
+func addMultiNum(arg ...int){
+    sum := 0
+    for _, n := range arg {
+        sum += n
+    }
+
+    fmt.Printf("sum is %d", sum)
+}
+
