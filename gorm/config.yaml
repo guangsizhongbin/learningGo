@@ -1,0 +1,5 @@
+db:
+  debug: true
+  type: mysql
+  coreDB: root:123456@tcp(127.0.0.1:3306)/pp_core?interpolateParams=true&parseTime=true&loc=Asia%2FShanghai
+  serviceDB: root:LM@admin123@tcp(192.168.0.236:3306)/pp_service?interpolateParams=true&parseTime=true&loc=Asia%2FShanghai

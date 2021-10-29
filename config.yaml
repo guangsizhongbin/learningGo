@@ -1,0 +1,19 @@
+http:
+  endpoint: 0.0.0.0:9000
+  debug: true
+
+tls:
+  cert: cert.pem
+  key: key.pem
+
+db:
+  debug: true
+  type: mysql
+  coreDB: root:123456@admin123@tcp(127.0.0.1:3306)/pp_core?interpolateParams=true&parseTime=true&loc=Asia%2FShanghai
+  serviceDB: root:123456@tcp(127.0.0.1:3306)/test?interpolateParams=true&parseTime=true&loc=Asia%2FShanghai
+
+  #parseTime, 正确处理 `time.Time`
+  #loc, 设置地区
+
+ nats:
+    addr: nats://127.0.0.1:4222
