@@ -50,9 +50,19 @@ func TestOpenGorm(t *testing.T) {
 	}
 	db = db.Debug()
 
-	var lanes []pkcenter_camera_lane
-	db.Raw("SELECT * from pkcenter_camera_lane where camera_id = ?", 1114).Scan(&lanes)
+	var camera_id int
+	var cameras []int
+	// var id int
+	// var lane_id int
+	laneId := 120
+	rows, err := db.Raw("select camera_id from pkcenter_camera_lane where lane_id = ?", laneId).Rows()
+	if err != nil {
+		panic(err)
+	}
 
-	fmt.Println(lanes)
+	for rows.Next() {
+		rows.Scan(&camera_id)
+		cameras = append(cameras, camera_id)
+	}
 
 }
