@@ -3,6 +3,7 @@ package concise
 import (
 	"fmt"
 	"reflect"
+	"strings"
 	"testing"
 )
 
@@ -43,9 +44,9 @@ func Test_intPlusint32(t *testing.T) {
 
 // Go语言中的字符串是不可变的
 // 可以先转回 []byte, 再转成 string
-func TestChangeChar(t *testing.T){
+func TestChangeChar(t *testing.T) {
 	// var s string = "hello"
-	// s[0] = 'c' 
+	// s[0] = 'c'
 
 	var s string = "hello"
 	b := []byte(s)
@@ -54,16 +55,28 @@ func TestChangeChar(t *testing.T){
 }
 
 // 字符串的切片
-func TestStringAndSlice(t *testing.T){
+func TestStringAndSlice(t *testing.T) {
 	s := "hello"
 	s = "c" + s[1:]
 	fmt.Printf("%s\n", s)
 }
 
 // 输出换行
-func TestMultiLineString(t *testing.T){
+func TestMultiLineString(t *testing.T) {
 	m := `hello
 				world`
 
 	fmt.Println(m)
+}
+
+// string.join 会使中间的字符通过-第二个参数连接起来
+func TestStringJoin(t *testing.T) {
+	str := []string{"Geeks", "For", "Geeks"}
+
+	// 会让 这几个字符通过-连接起来
+	fmt.Println(strings.Join(str, "-"))
+
+	// 会让 这几个字符通过 连接起来
+	fmt.Println(strings.Join(str, " "))
+
 }
