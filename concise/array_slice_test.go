@@ -14,6 +14,25 @@ func TestArray(t *testing.T) {
 	}
 }
 
+func TestTwoDimesionUseMake(t *testing.T) {
+	n := 2
+	m := 3
+
+	// 动态创建二维数组
+	grid := make([][]int, n)
+	for i := 0; i < n; i++ {
+		grid[i] = make([]int, m)
+	}
+
+	// 遍历
+	for i := 0; i < n; i++ {
+		for j := 0; j < m; j++ {
+			fmt.Print(grid[i][j])
+		}
+		fmt.Println()
+	}
+}
+
 func TestSlice(t *testing.T) {
 	slice1 := make([]float32, 0)    // 长度为0的切片
 	slice2 := make([]float32, 3, 5) // 长度为0的切片
@@ -72,7 +91,7 @@ func TestTwoDimesionalArray(t *testing.T) {
 	}
 }
 
-func TestSliceLenAndCap(t *testing.T){
+func TestSliceLenAndCap(t *testing.T) {
 	var array = [10]byte{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'}
 
 	aSlice := array[:3]
